@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #clock{
+        width: 350px;
+        height: 350px;
+        border: 10px solid black;
+        border-radius: 50%;
+        background-color: antiquewhite;
+    }
+    #point{
+        background-color: black;
+        width: 25px;
+        min-height: 10px;
+        height: 25px;
+        border-radius: 50%;
+        position: absolute;
+        top: 175px;
+        left: 177px;
+    }
+
+    .hour{
+        font-size: 25px;
+        font-weight: bold;
+        color: black;
+        position: absolute;
+    }
+    .hour-1{
+        top: 40px;
+        left: 275px;
+    }
+    .hour-2{
+        top:105px ; 
+        left:330px ;
+    }
+    .hour-3{
+        top:185px ; 
+        left: 350px; ;
+        color: red;
+        size: 30px;
+    }.hour-4{
+        top: 255px; ; 
+        left:330px;
+    }   .hour-5{
+        top:310px; 
+        left:275px;
+    }   .hour-6{
+        top: 335px; 
+        left:185px ;
+        color: red;
+    }   .hour-7{
+        top:310px ; 
+        left:95px ;
+    }   .hour-8{
+        top: 255px; ; 
+        left:45px ;
+    }
+    .hour-9{
+        top:185px ; 
+        left:25px ;
+        color: red;
+    }
+    .hour-10{
+        top:105px ; 
+        left:40px ;
+    }
+    .hour-11{
+        top:40px ; 
+        left:95px ;
+    }
+    .hour-12{
+      
+        left:185px ;
+        color: red;
+    }
+
+    .minute-hand .hand{
+        width: 4px;
+        height: 130px;
+        background-color: black;
+        position: absolute;
+        left: 151px;
+        top: 25px;
+
+    }
+    .hour-hand .hand{
+        width: 4px;
+        height: 100px;
+        background-color: black;
+        position: absolute;
+        left: 102px;
+        top: 8px;
+
+    }
+
+  
+
+    .second-hand .hand{
+        width: 2px;
+        height: 115px;
+        background-color:black;
+        position: absolute;
+        left: 52px;
+        top: -60px;
+
+    }
+    .minute-hand-wrapper{
+        width: 300px;
+        height: 300px;
+        position:absolute;
+        top: 42px;
+        left: 42px;
+        border-radius: 50%;
+    }
+    .minute-hand{
+        position: relative;
+    }
+
+    .hour-hand-wrapper{
+        width: 200px;
+        height: 200px;
+        position:absolute;
+        top: 90px;
+        left: 90px;
+        border-radius: 50%;
+    }
+    .hour-hand{
+        position: relative;
+    }
+    .second-hand-wrapper{
+        width: 100px;
+        height: 100px;
+        position:absolute;
+        top: 140px;
+        left: 140px;
+        border-radius: 50%;
+    }
+    .second-hand{
+        position: relative;
+    }
+</style>
+
+<body>
+  
+    <div id="clock">
+        <div id="point"></div>
+        <div class="hour hour-1">1</div>
+        <div class="hour hour-2">2</div>
+        <div class="hour hour-3">3</div>
+        <div class="hour hour-4">4</div>
+        <div class="hour hour-5">5</div>
+        <div class="hour hour-6">6</div>
+        <div class="hour hour-7">7</div>
+        <div class="hour hour-8">8</div>
+        <div class="hour hour-9">9</div>
+        <div class="hour hour-10">10</div>
+        <div class="hour hour-11">11</div>
+        <div class="hour hour-12">12</div>
+        <div class="minute"></div>
+        <div class="second"></div>
+
+        <div class="minute-hand-wrapper" id="minute-hand">
+            <div class="minute-hand">
+                <div class="hand"></div>
+                <div class="arrow"></div>
+            </div>
+        </div>
+
+        <div class="hour-hand-wrapper" id="hour-hand">
+            <div class="hour-hand">
+                <div class="hand"></div>
+                <div class="arrow"></div>
+            </div>
+        </div>
+
+        <div class="second-hand-wrapper" id="second-hand">
+            <div class="second-hand">
+                <div class="hand"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var second=0;
+        var minute=0;
+        var hour=0;
+        var d=new Date();
+
+        setInterval(
+            function(){
+                d=new Date();
+                second=d.getSeconds()*6;
+                minute=d.getMinutes()*6;
+                hour=d.getHours()*30+Math.round(minute/12);
+                document.getElementById("second-hand").style.transform="rotate("+second+"deg)";
+                document.getElementById("minute-hand").style.transform="rotate("+minute+"deg)";
+                document.getElementById("hour-hand").style.transform="rotate("+hour+"deg)";
+            },1000
+        );
+    </script>
+</body>
+</html>
